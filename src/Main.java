@@ -39,7 +39,12 @@ public class Main {
         System.out.println("Ваша корзина покупок:");
         int sum = 0;
         for (int i = 0; i < products.length; i++) {
-            boolean doBonus = sum >= MIN_COST_FOR_BONUS;
+            sum += prices[i] * counts[i];
+        }
+        boolean doBonus = sum >= MIN_COST_FOR_BONUS;
+
+        sum = 0;
+        for (int i = 0; i < products.length; i++) {
             if (counts[i] != 0) {
                 boolean isOnSale = false;
                 for (String saleProduct : productsOnSale) {
